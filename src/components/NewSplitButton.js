@@ -1,9 +1,10 @@
 import React from "react"
 
-function NewSplitButton(){
+function NewSplitButton(props){
+    const {action} = props
     return(
         <div className={"newSplit"}>
-            <i class="fas fa-plus"></i>
+            <button onClick={action}><i class="fas fa-plus"></i></button>
         </div>
     )
 }

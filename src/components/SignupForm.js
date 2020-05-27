@@ -5,10 +5,12 @@ import Button from "./Button"
 import firebaseApp from "../services/firebase/firebase"
 function SignupForm(){
     const handleSignup = (e)=>{
+        e.preventDefault();
         const { email, password } = e.target.elements;
         firebaseApp
         .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
+        .createUserWithEmailAndPassword(email.value, password.value)
+
     }
     return(
         <form onSubmit={handleSignup}>
