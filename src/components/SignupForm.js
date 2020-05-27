@@ -2,9 +2,13 @@ import React from "react"
 import TextInput from "./TextInput"
 import PasswordInput from "./PasswordInput"
 import Button from "./Button"
+import firebaseApp from "../services/firebase/firebase"
 function SignupForm(){
     const handleSignup = (e)=>{
-        console.log(e)
+        const { email, password } = e.target.elements;
+        firebaseApp
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value);
     }
     return(
         <form onSubmit={handleSignup}>

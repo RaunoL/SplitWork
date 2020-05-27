@@ -1,10 +1,11 @@
 import React from "react"
 function ProjectItem(props){
     const {name} = props
-    const open = (name)=>{
-        console.log(name)
+    const open = (e)=>{
+        console.log(e.target.innerText)
     }
     return(
-        <button className={"projectItem"} onClick={open(name)}>{name}</button>
+        <button className={"projectItem"} onClick={open}>{name}</button>
     )
 }
+export default ProjectItem

@@ -5,3 +5,4 @@ function TextInput(props){
         <input className={"textInput"} type="text" id={id}/>
     )
 }
+export default TextInput

@@ -1,7 +1,13 @@
 import React from "react";
-function Main(){
-    return(
-        <h1>Main</h1>
+import ProjectItem from "../components/ProjectItem"
+import AddButton from "../components/AddButton"
+function Main() {
+    return (
+        <div>
+            <ProjectItem name={"Joe application"}/>
+            <AddButton />
+        </div>
+
     )
 }
 export default Main
