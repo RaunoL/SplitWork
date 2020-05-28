@@ -5,7 +5,8 @@ const newProject = (name, due, splits) => {
         projName: name,
         dueDate: due,
         user: currentUserId,
-        splits: splits
+        splits: splits,
+        active: true
     })
 }
 export default newProject

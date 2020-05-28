@@ -3,8 +3,7 @@ import React from "react"
 function FocusHeader(props) {
     const { projName } = props;
     const { dueDate } = props;
-    console.log(projName)
-    console.log(dueDate)
+
     return (
         <div className={"focusHeader"}>
             <h3>{projName}</h3>

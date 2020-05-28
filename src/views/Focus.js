@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import FocusHeader from "../components/FocusHeader"
 import FocusSplit from "../components/FocusSplit"
 import FocusWrapper from "../components/FocusWrapper"
-function Create(){
-    return(
+import getProjectDetails from "../database/getProjectDetails"
+function Focus(props) {
+    const [projName, setProjName] = useState("loading")
+    const [dueDate, setDueDate] = useState("loading")
+    const [splits, setSplits] = useState([])
+    getProjectDetails().then((result) => {
+        setProjName(result.projName)
+        setDueDate(result.dueDate)
+        setSplits(result.splits)
+    })
+    const splitList = splits.map((split, index) =>
+        <FocusSplit key={index} name={split.name} due={split.due} id={index} />
+    )
+    return (
         <FocusWrapper>
-            <FocusHeader projName={"Joe application"} dueDate={"30-05-2020"}/>
+            <FocusHeader projName={projName} dueDate={dueDate} />
             <ul>
-                <FocusSplit name={"introduction"} due={"28-05-2020"} id={1}/>
-                <FocusSplit name={"introduction"} due={"28-05-2020"} id={2}/>
+                {splitList}
             </ul>
         </FocusWrapper>
     )
 }
-export default Create
+export default Focus

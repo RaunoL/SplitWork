@@ -3,6 +3,7 @@ import TextInput from "../components/TextInput"
 import ListOfSplits from "../components/ListOfSplits"
 import NewSplitButton from "../components/NewSplitButton"
 function Edit() {
+
     return (
         <div>
             <label htmlFor="projName">Project Name</label>

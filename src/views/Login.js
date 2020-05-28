@@ -1,17 +1,20 @@
 import React,{useState, useContext} from "react";
+import { Redirect } from 'react-router-dom';
 import SignupForm from "../components/SignupForm"
 import LoginForm from "../components/LoginForm"
 import Button from "../components/Button"
 import {AuthContext} from "../services/firebase/Auth"
-function Login() {
+function Login(props) {
     const { currentUser } = useContext(AuthContext);
     const [currentFrom, setCurrentForm] = useState(null)
-    console.log(currentUser);
     const toggleLogin = ()=>{
         setCurrentForm(LoginForm)
     }
     const toggleSignup = ()=>{
         setCurrentForm(SignupForm)
+    }
+    if (currentUser){
+        return <Redirect to="/main" />;
     }
     
     return (
