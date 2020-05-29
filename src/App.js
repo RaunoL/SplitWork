@@ -14,12 +14,15 @@ import Header from "./components/Header"
 import MainContainer from "./components/Main"
 import { AuthProvider } from "./services/firebase/Auth"
 import ProtectedRoute from "./components/ProtectedRoute"
+import Container from "./components/Container"
+import Background from "./components/Background"
 function App() {
   return (
-      <AuthProvider>
-        <Router>
-          <Switch>
-            <div className={"container"}>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Background>
+            <Container>
               <Header />
               <MainContainer>
                 <Route exact path="/" component={Login}></Route>
@@ -28,10 +31,11 @@ function App() {
                 <ProtectedRoute exact path="/create" component={Create} ></ProtectedRoute>
                 <ProtectedRoute exact path="/focus" component={Focus} ></ProtectedRoute>
               </MainContainer>
-            </div>
-          </Switch>
-        </Router>
-      </AuthProvider >
+            </Container>
+          </Background>
+        </Switch>
+      </Router>
+    </AuthProvider >
   );
 }
 

@@ -10,7 +10,7 @@ function Header() {
     return (
         <div className={"header"}>
             <h1>Project planner</h1>
-            <Button id={"logout"} action={logout} text={"Log out"}/>
+            <button className={"logoutButton"} id={"logout"} onClick={logout} ><i className={"fas fa-sign-out-alt"}></i></button>
         </div>
 
     )

@@ -1,9 +1,9 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 function AddButton(){
     return(
-        <div className={"addButton"}>
-            <i class="fas fa-plus"></i>
-        </div>
+        <Link to="/create"> <button className={"addButton"}><i class="fas fa-plus"></i> Create new</button></Link>
+           
     )
 }
 

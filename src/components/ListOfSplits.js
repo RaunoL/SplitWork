@@ -1,6 +1,7 @@
 import React from "react"
 import FocusSplit from "./FocusSplit"
-function ListOfSplits(){
+function ListOfSplits(props){
+    const {splits} = props
     return(
         <ul>
             <FocusSplit name={"Introduction"} id={1} due={"20-05-2020"}/>

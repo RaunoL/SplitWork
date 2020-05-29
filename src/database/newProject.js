@@ -5,8 +5,30 @@ const newProject = (name, due, splits) => {
         projName: name,
         dueDate: due,
         user: currentUserId,
-        splits: splits,
-        active: true
+        active: false
     })
+        .then(() => {
+            firebaseApp
+                .firestore()
+                .collection("projects")
+                .where("user", "==", currentUserId)
+                .where("projName", "==", name)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach(function (doc) {
+                        // doc.data() is never undefined for query doc snapshots
+                        console.log(doc.id, " => ", doc.data());
+                        splits.forEach(element =>
+                            firebaseApp.firestore().collection("projects").doc(doc.id).collection("splits").doc(element.id).set({
+                                name : element.name,
+                                due : element.due,
+                                status : element.status
+                            })
+                        );
+
+                    });
+                })
+        })
 }
+
 export default newProject
