@@ -1,0 +1,17 @@
+.button {
+    padding: 20px 0;
+    width: 90%;
+    margin: 30px 5%;
+    border: none;
+    border-radius: 50px;
+    font-size: 2em;
+    background-color: $green;
+    color: $white;
+}
+
+@media(min-width: 1000px) {
+    .button {
+        margin: 30px 25%;
+        width: 50%;
+    }
+}

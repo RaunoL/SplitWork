@@ -1,5 +1,5 @@
 # Work splitting app
-## introduction
+## Introduction
 
 This project is part of Web development for industry course. The goal was to create a responsive SPA that would support students during their studies. Main focus of this project was on development and functionality rather than design. 
 ## Background
@@ -8,7 +8,7 @@ Prototyping is an important part of understanding design and evaluating products
 ### Firebase
 Firebase is a platform for mobile and we apps.[4](https://firebase.google.com/) Their many products work well together. For this project firebase Authentication, cloud Firestore and Hosting were used. 
 
-Firebase Authentication is responsible for authenticationg users. This is an important part of a web app to know who is using your app as it allows the app to securely store user data and ensure the experience is the same across multiple devices. Firebase Authentication goes well with other firebase services. [5](https://firebase.google.com/docs/auth)
+Firebase Authentication is responsible for authenticating users. This is an important part of a web app to know who is using your app as it allows the app to securely store user data and ensure the experience is the same across multiple devices. Firebase Authentication goes well with other firebase services. [5](https://firebase.google.com/docs/auth)
 
 Cloud firestore is a noSQL database hosted in the cloud. It is fast, flexible, scalable and it can be used on all platforms. It keeps the data between user device and database in sync. In Firestore documents are stored in collection and each document can contain more collections. [6](https://firebase.google.com/docs/firestore)
 
@@ -18,15 +18,15 @@ React is one of the three most popular javascript frameworks.
 [8](https://edoc.sub.uni-hamburg.de/haw/volltexte/2018/4350/pdf/BA_Wohlgethan_2176410.pdf)
 
 ## Methodology
-The methodology used for this project was design thinking. Design thinking is an iteration proccess which seeks to understand the user and redefine the problems that users are having that might not be apparent initailly [9](https://www.interaction-design.org/literature/article/what-is-design-thinking-and-why-is-it-so-popular).
+The methodology used for this project was design thinking. Design thinking is an iteration process which seeks to understand the user and redefine the problems that users are having that might not be apparent initially [9](https://www.interaction-design.org/literature/article/what-is-design-thinking-and-why-is-it-so-popular).
 
 
 ### Design thinking
 
-Design thinking is a 5 stage process. The first step is to empathise with the users to truely understand which problems they are facing. The second step is Defining the problem. This means truely understanding the underlying cause of the problem. The thirds step is Ideate. During this state ideas should be generated. Techniques such as branstorming or Worst Possible Idea could be used to come up with solutions to the problem. The fouths stage is prototyping. The aim of this stage is to investigate the  solutions that have been generated during the last stage. During this stage those solutions are implemented on a scaled down prototype. The fifth stage is testing. The best possible solutions are generated during the testing phase. During this phase a deeper understanding of the problem ought to be developed. [10](https://www.interaction-design.org/literature/article/5-stages-in-the-design-thinking-process)
+Design thinking is a 5 stage process. The first step is to empathise with the users to truly understand which problems they are facing. The second step is Defining the problem. This means truly understanding the underlying cause of the problem. The third step is Ideate. During this state ideas should be generated. Techniques such as brainstorming or Worst Possible Idea could be used to come up with solutions to the problem. The fouth stage is prototyping. The aim of this stage is to investigate the  solutions that have been generated during the last stage. During this stage those solutions are implemented on a scaled down prototype. The fifth stage is testing. The best possible solutions are generated during the testing phase. During this phase a deeper understanding of the problem ought to be developed. [10](https://www.interaction-design.org/literature/article/5-stages-in-the-design-thinking-process)
 
 ### Subject selection
-A total of 5 students were chosen for this project. These students would take part in all steps that involve users. All participants were studying in the UK but had different origin. 2 male and 3 female participant were chosen. All participants were in their third year of university. The age range was 21-23 years. Each user was asked for their email which was the primary form of contact.
+A total of 5 students were chosen for this project. These students would take part in all steps that involve users. All participants were studying in the UK but had different origins. 2 male and 3 female participants were chosen. All participants were in their third year of university. The age range was 21-23 years. Each user was asked for their email which was the primary form of contact.
 ### Quantitative survey
 The data collection method was quantitative survey. This method is used to gain insight from responders about research topic [11](https://www.questionpro.com/blog/quantitative-survey-questions/) . This method was used through surveymonkey platform. Surveymonkey is a free online survey tool [12](www.surveymonkey.com). During each step a unique survey was created and sent to all participants' emails. Each participant was asked to answer the questions on their own and not share their answers with others
 
@@ -40,14 +40,37 @@ Participants had come up with different solutions. The most commonly named solut
 #### Phase 5
 Each participant was sent a link to the prototype and asked to fill out a survey about it. A total of 2 questions was asked: Do you think an app like this could solve the problem and What suggestions would you make for this app.
 #### Iteration 2
-The second iteration was started on phase 4 since the idea and understanding had already been developed and based on user feedback the solution was good. Otherwise the proccess would have to start again at stage 3. 
+The second iteration was started on phase 4 since the idea and understanding had already been developed and based on user feedback the solution was good. Otherwise the process would have to start again at stage 3. 
 
 Taking into account the participants' input the prototype was changed. Each of the users was then sent a new survey with a link to the updated prototype. The survey conatined 2 questions: Do you prefer the old prototype or the new one and what suggestions would you make to the app.
 #### Iteration 3
-The third iteration started once again at phase 4. Only this time a functional web app was created instead of a prototype. This web app will be discussed in depth in [implementation](#Implementation). Each of the users was then sent a link to the live demo of the web app and sent a survey with 3 questions: What suggestions would you like to have for this web app, what do you dislike about this web app and what features would you like to see in this web app.
+The third iteration started once again at phase 4. Only this time a functional web app was created instead of a prototype. This web app will be discussed in depth in [implementation](#Implementation). Each of the users was then sent a link to the live demo of the web app and sent a survey with 3 questions: What do you like about the web app, what do you dislike about this web app and what features would you like to see in this web app.
 
 
 ## <a name="Implementation">Implementation</a> 
+
+### CRA and React
+React was used as the framework of this SPA. The app was created with create-react-app(CRA). The first step was creating elements individually. Taking apart each page and dividing it into components was first part of creating the app. Once that was done, each component was created. Then components that combine elements could then be created. React hooks were used across the app to store data from user inputs among other things. 
+### Authentication
+The app uses Firebase Authentication for user authentication. Authentication is stored in a context called AuthContext and each element can access that. That context is monitored by onAuthStateChange function and a useState hook is used to keep the value updated constantly. Users can log in only with email and password. All logins and signups are handled by firebase Authentication. 
+### Sass
+Sass is a css preprocessor that adds additional functionality to stylesheets [13](https://www.creativebloq.com/web-design/what-is-sass-111517618). In this project it was used for nested rules and variables. Each colour was held in a variable so that if that colour had to be changed it would be changed only inside the variable. Nested rules result in cleaner code. All styling was kept in a single scss folder where a main.scss file was located. The main.scss file had imports of all other files in the scss folder. So to import the styles to the app only a single import was needed. In the scss folder was also a components folder. Each component that had unique styling had a seperate file so that it would be easy to find if the style of that component had to be changed.
+### Database
+Firebase Firestore was used as a database for this project. The database was first drafted on paper to know which fields will be needed and what database functions need to be created.
+The whole database is a single collection called "projects". Whenever a user creates a new project a new document gets added. That document has a default id. Inside the document is the due date of that project, the name of that project, the user value which is equal to the uid of the user who created it. Inside the document is a collection called splits. The splits are what hold the data of each smaller part of a project. Each split has a unique document id and contains the name of that split and due date of that split.
+
+A database folder was created for all database functions. Those functions were newProject(creates a new project), updateSplitInfo(updates the split that is passed as an argument), getUserProjects(gets all the projects of the logged in user), getProjectDetails(gets the info about a project that is passed as an argument), changeActiveProjects(changes the currently active project to a project that is passed as an argument).  
+### Routing
+React-dom-router was used for routing. Each screen in the prototype was inside its own route. Protected routes were set up so that only logged in users could log in. Everyone else got redirected to login. Routing caused a small issue: state does not get preserved on loading a different page. But it was necessary to know which project is currently active. If a user clicks on a project on the main page they would get routed to a focus page that shows the currently active project but the state would disappear. There were a few ways to overcome this problem: 
+* redux - Using redux would let me have global state variables
+* context - using context, the currently active project could be made available to all users
+* passing the data with the url
+* saving the data in the database
+The solution I used was saving the data in the database. This however made the app a little slower though since database functions are asynchronous.
+### Hosting 
+The app was hosted with Firebase Hosting. I simply had to run the build command in my project folder, install firebase with "npm install -g firebase-tools". Then Authenticate myself with "firebase login". The next step was setting up the project. Running "firebase init" initializes the project. Then I had to run "firebase deploy" command to deploy the web and set the public folder to build so that my built app would be hosted. 
+
+
 ## Results and discussion
 ### iteration 1
 | Please list 5 problems you have faced during your studies in an order of importance |                                   |                           |                    |                        |
@@ -88,7 +111,7 @@ This table clearly shows what the biggest problems students were facing are. The
 
 Phase 2 and 3 results
 
-Based on the infor recieved it seems like procrastination is the underlying problem for lack of time. Answers "I always leave things to the last minute", "All the free time is spent on doing other things that seem important right now", "I think it's because I prefer having fun now rather than doing something straight away" and "I spend way too much time on Netflix and the like" indicate procrastination rather than time management. But both of them are very closely related.
+Based on the information recieved it seems like procrastination is the underlying problem for lack of time. Answers "I always leave things to the last minute", "All the free time is spent on doing other things that seem important right now", "I think it's because I prefer having fun now rather than doing something straight away" and "I spend way too much time on Netflix and the like" indicate procrastination rather than time management. But both of them are very closely related.
 
 All users indicated that they believe some sort of time management app would be their solution. The answers that indicate that are "something to help me track time and plan ahead", "something to keep track of my work and maybe do this work in bits", "timetabling that can let you customize the uni timetable", "I would rather do work in small parts and having a deadline for each part" and "planning my time better". Two of the users mentioned doing the work in small parts. Other than that no more patterns appeared. This lead me to an idea of an app where work can split into smaller bits and users can add a due date for each bit.
 
@@ -132,7 +155,8 @@ The suggestions users made were
 
 
 ### Iteration 2
-The new prototype was created with user feedback in mind. Also a desktop version of the application was created\
+The new prototype was created with user feedback in mind. Also a desktop version of the application was created. 
+
 ![prototype 1](/images/Desktop-1.png)
 
 screen 1 of second iteration prototype for desktop
@@ -161,7 +185,33 @@ screen 5 of second iteration prototype for desktop
 | new                                                  | its good as is                                                                        |
 | I like the new one                                   | the use of space on desktop seems a little bad. only using like quarter of the screen |
 results of survey done in phase 5 iteration 2
+
+### Iteration 3
+In this stage the web app was implemented. More about implementation  [here.](#Implementation)
+| what do you dislike about this web app?     | What do you like about the web app                                                                                                                                                                                                                                                                                                                                       | what features would you like to see in this web app    |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| It seems to be rather slow for me           | The design is clearly orientated towards the data, rather than looks, which is great because it shows a clear understanding of the technologies and ways you wish to implement it in order to have a working product. It also shows an understanding of responsive design which is great, especially when you have the bottom right corner buttons for the mobile users. | maybe notifications about upcoming deadlines           |
+| changing the parts seems difficult          | it has a nice ui/ux, providing the right type of icons for the right type of actions                                                                                                                                                                                                                                                                                     | Wish you could just click on a task to cross it off    |
+| nothing                                     | the colors are pleasing to the eye and buttons are big and easy to click on                                                                                                                                                                                                                                                                                              | maybe having more details on those parts               |
+| the name. Project planner sounds so generic | I can use it to plan my future projects                                                                                                                                                                                                                                                                                                                                  | maybe collaboration. Like sharing projects with others |
+| there is no back button                     | It is very clear. No unnecessary stuff                                                                                                                                                                                                                                                                                                                                   | the back button                                        |
+Survey results of phase 5 iteration 3
+Based on the feedback recived the UI is good. The recommendations that will be taken from this survey is that it is missing some features that users need to make the app using experience better. There also seems to be a performance issue that causes the app to freeze when clicking a link.
+These recommendations are 
+* improve performance
+* back button to each screen
+* improving how tasks are completed and edited
+* think of a better name
+* implement collaboration on projects
+* add notifications about upcoming deadlines
+
 ## Conclusion and recommendations
+This project's aim was to create a web app that would support students. This was done by using design thinking methodology. The problem that seemed to be most prevalent was "lack of time". However, after analysis of survey results the underlying problem was determined to be procrastination. The solution, that was developed after multiple iterations of design thinking methodology, was a basic functional web app. The app is a project planner that lets users split their projects into smaller parts and set their own deadlines for those parts. I believe this app fulfills the aim of the project since it supports students by making it easier to track their projects' progress.
+
+In hindsight some things should have been done differently. Using surveymonkey for surveys proved to be difficult as every answer was separately copied  to excel manually because that is a paid feature. More time could have been allocated to allow deeper understanding of the user problems and maybe coming up with solutions to other problems students are facing.
+
+In the future this app could be developed further. Some things that users requested on testing the app were improved performance and notifications. However, due to time constraints these features will not be added.
+
 ## References 
 1. Buchenau, M. and Suri, J.F., 2000, August. Experience prototyping. In Proceedings of the 3rd conference on Designing interactive systems: processes, practices, methods, and techniques (pp. 424-433).
 2. https://webdesign.tutsplus.com/articles/what-is-figma--cms-32272
@@ -175,5 +225,6 @@ results of survey done in phase 5 iteration 2
 10. https://www.interaction-design.org/literature/article/5-stages-in-the-design-thinking-process
 11. https://www.questionpro.com/blog/quantitative-survey-questions/
 12. www.surveymonkey.com
-#### Link to code here
-#### Link to hosting here
+13. https://www.creativebloq.com/web-design/what-is-sass-111517618
+#### [My github](https://github.com/RaunoL/SplitWork)
+#### [Live demo](https://web-dev-practical-176d0.firebaseapp.com/)

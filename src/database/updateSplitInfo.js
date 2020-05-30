@@ -1,7 +1,6 @@
 import firebaseApp from "../services/firebase/firebase"
 const updateSplitInfo = async (name, due, id, status) => {
     const currentUserId = firebaseApp.auth().currentUser.uid;
-    const newElement = {name: name, due: due, id: id, status: status}
     await firebaseApp
         .firestore()
         .collection("projects")

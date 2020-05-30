@@ -1,27 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 function FocusSplit(props) {
     const { name } = props
     const { due } = props
     const { id } = props
-    const { status } = props
-    const { setEditSplit } = props
 
-    const updateSplit = (e) => {
-        setEditSplit(e.target.parentElement.id)
-    }
-    if (status) {
+
         return (
-            <div id={"split" + id} className={"split"}>
-                <button onClick={updateSplit}><li><span>{name}</span> Is due in <span>{due}</span></li></button>
-            </div>)
-    }
-    else {
-        return (
-            <div id={"split" + id} className={"split complete"}>
-                <button onClick={updateSplit}><li><span>{name}</span> Is due in <span>{due}</span></li></button>
+            <div id={"split" + id} className={"split "}>
+                <button><span>{name}</span><br/> Due on <span>{due}</span></button>
             </div>
         )
-    }
 
 }
 export default FocusSplit

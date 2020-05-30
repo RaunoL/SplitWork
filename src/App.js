@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Switch,
   Route,
@@ -8,7 +8,6 @@ import "./styles/main.scss";
 import Login from "./views/Login";
 import Main from "./views/Main";
 import Focus from "./views/Focus";
-import Edit from "./views/Edit";
 import Create from "./views/Create";
 import Header from "./components/Header"
 import MainContainer from "./components/Main"
@@ -27,7 +26,6 @@ function App() {
               <MainContainer>
                 <Route exact path="/" component={Login}></Route>
                 <ProtectedRoute exact path="/main" component={Main} ></ProtectedRoute>
-                <ProtectedRoute exact path="/edit" component={Edit} ></ProtectedRoute>
                 <ProtectedRoute exact path="/create" component={Create} ></ProtectedRoute>
                 <ProtectedRoute exact path="/focus" component={Focus} ></ProtectedRoute>
               </MainContainer>

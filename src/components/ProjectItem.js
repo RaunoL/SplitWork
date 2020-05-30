@@ -1,8 +1,6 @@
-import React,{useState} from "react"
+import React from "react"
 import changeActiveProject from "../database/changeActiveProject"
 import { useHistory } from "react-router-dom";
-
-import getUserProjects from "../database/getUserProjects"
 function ProjectItem(props){
     const {name} = props
     let history = useHistory()

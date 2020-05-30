@@ -1,33 +1,43 @@
 import React, { useState } from "react";
 import FocusHeader from "../components/FocusHeader"
-import FocusSplit from "../components/FocusSplit"
+import EditSplit from "../components/EditSplit"
 import FocusWrapper from "../components/FocusWrapper"
 import getProjectDetails from "../database/getProjectDetails"
+import getProjectSplits from "../database/getProjectSplits"
 import UpdateSplit from "../components/UpdateSplit"
 function Focus(props) {
     const [projName, setProjName] = useState("loading")
     const [dueDate, setDueDate] = useState("loading")
     const [splits, setSplits] = useState([])
-    const [editSplit, setEditSplit] = useState()
-    const [currentRender, setCurrentRender] = useState()
+    const [currentEdit, setCurrentEdit] = useState()
     getProjectDetails().then((result) => {
-        // setProjName(result[0].projName)
-        // setDueDate(result[0].dueDate)
-        setSplits(result)
+        setProjName(result[0].projName)
+        setDueDate(result[0].dueDate)
+        getProjectSplits(result[1])
+        .then((splitsResult)=>{
+            setSplits(splitsResult)
+        })
+        
     })
-
-    // const splitList = splits.map((split, index) =>
-    //     // <FocusSplit status={split.status} editSplit={editSplit} setEditSplit={setEditSplit} key={index} name={split.name} due={split.due} id={index} />
-    //     <h1>{split.name}</h1>
-    // )
-
+    const splitList = splits.map((split, index) =>
+        <EditSplit 
+        status={split.status} 
+        currentEdit={currentEdit} 
+        setCurrentEdit={setCurrentEdit} 
+        key={index} 
+        name={split.name} 
+        due={split.due} 
+        id={index} />
+    )
     return (
         <FocusWrapper>
             <FocusHeader projName={projName} dueDate={dueDate} />
+            {(currentEdit) ? <UpdateSplit splitId={currentEdit.id} setCurrentEdit={setCurrentEdit} name={currentEdit.name} due={currentEdit.due} status={currentEdit.status}></UpdateSplit> : 
             <ul>
-                {/* {splitList} */}
+                {splitList}
             </ul>
-            <UpdateSplit splitId={1} name={"Math"} due={"2015-03-25"}></UpdateSplit>
+}
+            
         </FocusWrapper>
     )
 }

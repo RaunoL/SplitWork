@@ -1,0 +1,13 @@
+.split button {
+    width: 90%;
+    margin: 20px 5%;
+    background-color: $green;
+    border: 1px solid $black;
+    color: $white;
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+.complete button {
+    text-decoration: line-through;
+}

@@ -1,7 +1,7 @@
 import firebaseApp from "../services/firebase/firebase"
-const newProject = (name, due, splits) => {
+const newProject = async (name, due, splits) => {
     const currentUserId = firebaseApp.auth().currentUser.uid
-    firebaseApp.firestore().collection("projects").doc().set({
+    await firebaseApp.firestore().collection("projects").doc().set({
         projName: name,
         dueDate: due,
         user: currentUserId,
